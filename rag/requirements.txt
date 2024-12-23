@@ -1,0 +1,5 @@
+io
+flask
+PyPDF2
+langchain.text_splitter
+langchain_community.vectorstores

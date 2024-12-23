@@ -1,0 +1,4 @@
+flask
+langchain-huggingface
+transformers
+sentence-transformers

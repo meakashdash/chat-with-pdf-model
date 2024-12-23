@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  llm-server:
+    build:
+      context: ./llm
+    ports:
+      - "6000:6000"
+    volumes:
+      - ./cache:/cache
+    environment:
+      HF_CACHE: /cache/huggingface
+      HUGGINGFACEHUB_API_TOKEN: ${HUGGINGFACEHUB_API_TOKEN}
+
+  rag-server:
+    build:
+      context: ./rag
+    ports:
+      - "5000:5000"
+    environment:
+      LLM_SERVER_URL: http://llm-server:6000
